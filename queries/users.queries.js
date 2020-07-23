@@ -1,7 +1,7 @@
-const User = require("../database/models/user.model");
-const uuid = require("uuid/v4");
+const User = require('../database/models/user.model');
+const { v4: uuid } = require('uuid');
 
-exports.createUser = async user => {
+exports.createUser = async (user) => {
   try {
     const hashedPassword = await User.hashPassword(user.password);
     const newUser = new User({
@@ -9,8 +9,8 @@ exports.createUser = async user => {
       local: {
         email: user.email,
         password: hashedPassword,
-        emailToken: uuid()
-      }
+        emailToken: uuid(),
+      },
     });
     return newUser.save();
   } catch (e) {
@@ -18,19 +18,19 @@ exports.createUser = async user => {
   }
 };
 
-exports.findUserPerEmail = email => {
-  return User.findOne({ "local.email": email }).exec();
+exports.findUserPerEmail = (email) => {
+  return User.findOne({ 'local.email': email }).exec();
 };
 
-exports.findUserPerId = id => {
+exports.findUserPerId = (id) => {
   return User.findById(id).exec();
 };
 
-exports.findUserPerUsername = username => {
+exports.findUserPerUsername = (username) => {
   return User.findOne({ username }).exec();
 };
 
-exports.searchUsersPerUsername = search => {
+exports.searchUsersPerUsername = (search) => {
   const regExp = `^${search}`;
   const reg = new RegExp(regExp);
   return User.find({ username: { $regex: reg } }).exec();
@@ -43,7 +43,7 @@ exports.addUserIdToCurrentUserFollowing = (currentUser, userId) => {
 
 exports.removeUserIdToCurrentUserFollowing = (currentUser, userId) => {
   currentUser.following = currentUser.following.filter(
-    objId => objId.toString() !== userId
+    (objId) => objId.toString() !== userId
   );
   return currentUser.save();
 };
