@@ -11,21 +11,21 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^5.0.1",
-    "connect-mongo": "^4.4.1",
+    "bcrypt": "^5.1.0",
+    "connect-mongo": "^4.6.0",
     "errorhandler": "^1.5.1",
-    "express": "^4.17.1",
-    "express-session": "^1.17.1",
-    "moment": "^2.29.1",
-    "mongoose": "^5.12.2",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "moment": "^2.29.4",
+    "mongoose": "^6.7.3",
     "morgan": "^1.10.0",
     "multer": "^1.4.2",
-    "nodemailer": "^6.5.0",
+    "nodemailer": "^6.8.0",
     "nodemailer-sparkpost-transport": "^2.2.0",
-    "nodemon": "^2.0.7",
-    "passport": "^0.4.1",
+    "nodemon": "^2.0.20",
+    "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "pug": "^3.0.2",
-    "uuid": "^8.3.2"
+    "uuid": "^9.0.0"
   }
 }
