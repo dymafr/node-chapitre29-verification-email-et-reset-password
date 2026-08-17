@@ -1,5 +1,5 @@
 const User = require('../database/models/user.model');
-const { v4: uuid } = require('uuid');
+const { randomUUID } = require('node:crypto');
 
 exports.createUser = async (user) => {
   try {
@@ -9,7 +9,7 @@ exports.createUser = async (user) => {
       local: {
         email: user.email,
         password: hashedPassword,
-        emailToken: uuid(),
+        emailToken: randomUUID(),
       },
     });
     return newUser.save();

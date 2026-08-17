@@ -11,7 +11,7 @@ const {
   emailLinkVerification,
   initResetPassword,
   resetPasswordForm,
-  resetPassowrd
+  resetPassword
 } = require("../controllers/users.controller");
 
 router.get("/", userList);
@@ -24,6 +24,6 @@ router.post("/update/image", ensureAuthenticated, uploadImage);
 router.get("/email-verification/:userId/:token", emailLinkVerification);
 router.post("/forgot-password", initResetPassword);
 router.get("/reset-password/:userId/:token", resetPasswordForm);
-router.post("/reset-password/:userId/:token", resetPassowrd);
+router.post("/reset-password/:userId/:token", resetPassword);
 
 module.exports = router;
